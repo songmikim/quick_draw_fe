@@ -6,10 +6,10 @@ const { primary, light, dark } = color;
 const { normal, medium } = fontsize;
 
 const commonStyle = css`
-  min-width: 100px;
+  min-width: 80px;
   min-height: 45px;
   background: ${({ bg }) => (bg ? (color[bg] ? color[bg] : bg) : primary)};
-  color: ${({ color: c }) => (c ? (color[c] ? color[c] : c) : primary)};
+  color: ${({ color: c }) => (c ? (color[c] ? color[c] : c) : light)};
   font-size: ${normal};
   border: 0;
   cursor: pointer;
