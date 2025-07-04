@@ -1,5 +1,5 @@
 const categories = {
-  binoculars: '안경',
+  binoculars: '쌍안경',
   basket: '바구니',
   beach: '해변가',
   apple: '사과',
@@ -8,7 +8,7 @@ const categories = {
   blackberry: '블랙베리',
   basketball: '농구',
   axe: '도끼',
-  baseball: '야구',
+  baseball: '야구공',
   bottlecap: '병뚜껑',
   banana: '바나나',
   bat: '박쥐',

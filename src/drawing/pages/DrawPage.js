@@ -14,7 +14,6 @@ const DrawPage = () => {
       <Helmet>
         <title>낙서하기</title>
       </Helmet>
-      <h1>Draw</h1>
       <Wrapper>
         <DrawContainer />
       </Wrapper>
