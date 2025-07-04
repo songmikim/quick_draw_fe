@@ -26,6 +26,7 @@ const Wrapper = styled.div`
   display: block;
   margin: 0 auto;
   }
+  
 `;
 
 const MainPage = () => {
@@ -34,7 +35,7 @@ const MainPage = () => {
       <div>
         <img className='main-image' src={mainImage} alt="메인이미지" />
         <Link to="/draw" className='start-btn'>
-          <MediumButton type="button">시작하기</MediumButton>
+          <MediumButton type="button" color='dark'>시작하기</MediumButton>
         </Link>
       </div>
     </Wrapper>

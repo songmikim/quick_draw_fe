@@ -23,8 +23,8 @@ const StyledHeader = styled.header`
     display: flex;
     align-items: center;
 
-    &.on {
-      text-shadow: 2px 2px 5px ${dark};
+    &.on, &.active {
+      color: ${dark};
     }
 
     svg {

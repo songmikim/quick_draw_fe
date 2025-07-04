@@ -1,12 +1,13 @@
 const color = {
     primary:'#ffd139',
-    secondary:'#adb5bd',
+    secondary:'#fbf3d3',
     success:'#198754',
-    info:'#0dcaf0',
+    info:'#0dbcf0',
     warning:'#fd7e14',
     danger:'#dc3545',
-    light:'#f8f9fa',
-    dark:'#212592'
+    light:'#fff',
+    lightgray: '#ccc',
+    dark:'#795708'
 }
 
 export default color;

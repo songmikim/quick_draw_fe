@@ -6,7 +6,7 @@ import color from '../../global/styles/color';
 import fontsize from '../../global/styles/fontsize';
 import loadingImg from '../../global/images/loading.gif';
 
-const { success, light } = color;
+const { success, light , dark } = color;
 const { medium } = fontsize;
 
 const Wrapper = styled.div`
@@ -35,11 +35,11 @@ const Result = ({ onClick, onRefresh, category, eq, predictions, loading }) => {
         {loading ? (
           <img src={loadingImg} alt="loading" className="loading" />
         ) : (
-          <MediumButton type="button" onClick={onClick}>
+          <MediumButton type="button" onClick={onClick} color='dark'>
             제출
           </MediumButton>
         )}
-        <MediumButton type="button" onClick={onRefresh} bg="info">
+        <MediumButton type="button" onClick={onRefresh} bg="dark">
           한번더
         </MediumButton>
       </div>

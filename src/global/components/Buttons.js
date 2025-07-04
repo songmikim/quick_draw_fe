@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components';
 import color from '../styles/color';
 import fontsize from '../styles/fontsize';
 
-const { primary, light, dark } = color;
+const { primary, light, dark, lightgray } = color;
 const { normal, medium } = fontsize;
 
 const commonStyle = css`
@@ -13,7 +13,11 @@ const commonStyle = css`
   font-size: ${normal};
   border: 0;
   cursor: pointer;
-  box-shadow: 3px 3px 5px ${dark};
+  transition: box-shadow 0.3s ease;
+
+  &:hover {
+    box-shadow: 3px 3px 0px ${lightgray};
+  }
 `;
 
 export const Button = styled.button`
