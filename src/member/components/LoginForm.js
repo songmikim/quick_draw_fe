@@ -3,9 +3,11 @@ import styled from 'styled-components';
 import { MediumButton } from '../../global/components/Buttons';
 import color from '../../global/styles/color';
 import fontsize from '../../global/styles/fontsize';
+import MessageBox from '../../global/components/MessageBox';
 
 const { dark } = color;
 const { medium } = fontsize;
+
 const StyledForm = styled.form`
   min-width: 280px;
   max-width: 350px;
@@ -28,9 +30,10 @@ const StyledForm = styled.form`
   button {
     margin-top: 20px;
   }
+
 `;
 
-const LoginForm = ({ form, onChange, onSubmit }) => {
+const LoginForm = ({ form, onChange, onSubmit , errors}) => {
   return (
     <StyledForm onSubmit={onSubmit} autoComplete="off">
       <input
@@ -40,6 +43,7 @@ const LoginForm = ({ form, onChange, onSubmit }) => {
         value={form.email ?? ''}
         onChange={onChange}
       />
+      <MessageBox theme="danger">{errors.email}</MessageBox>
       <input
         type="password"
         name="password"
@@ -47,6 +51,9 @@ const LoginForm = ({ form, onChange, onSubmit }) => {
         value={form.password ?? ''}
         onChange={onChange}
       />
+
+      <MessageBox items={errors.password} theme="danger"  />
+
       <MediumButton type="submit" width="100%" color="dark">
         로그인
       </MediumButton>

@@ -2,10 +2,12 @@ import React from 'react';
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 import classNames from 'classnames';
-import { MdHome, MdDraw } from 'react-icons/md';
+import { MdHome, MdDraw, MdLogout } from 'react-icons/md';
 import { IoMdLogIn } from 'react-icons/io';
 import color from '../styles/color';
 import fontzize from '../styles/fontsize';
+import useUserInfo from '../hooks/useUserInfo';
+import useLogout from '../hooks/useLogout';
 
 const { primary, light, dark } = color;
 const { big, extraBig } = fontzize;
@@ -24,11 +26,11 @@ const StyledHeader = styled.header`
     display: flex;
     flex-grow: 1;
   }
-  
+
   .right {
     justify-content: right;
   }
-    
+
   a {
     font-size: ${big};
     color: ${light};
@@ -51,6 +53,8 @@ const StyledHeader = styled.header`
 `;
 
 const Header = () => {
+  const [isLogin, loggedMember] = useUserInfo();
+  const onLogout = useLogout;
   return (
     <StyledHeader className="layout-width">
       <div className="left">
@@ -67,13 +71,23 @@ const Header = () => {
         </NavLink>
       </div>
       <div className="right">
-        <NavLink
-          to="/member/login"
-          className={({ isActive }) => classNames({ on: isActive })}
-        >
-          <IoMdLogIn />
-          <span>로그인</span>
-        </NavLink>
+        {isLogin ? (
+          <>
+            {loggedMember?.name}({loggedMember.name}) 님,
+            <a onClick={onLogout}>
+              <MdLogout />
+              <span>로그아웃</span>
+            </a>
+          </>
+        ) : (
+          <NavLink
+            to="/member/login"
+            className={({ isActive }) => classNames({ on: isActive })}
+          >
+            <IoMdLogIn />
+            <span>로그인</span>
+          </NavLink>
+        )}
       </div>
     </StyledHeader>
   );
