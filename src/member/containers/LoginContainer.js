@@ -1,5 +1,5 @@
 import React, { useState, useCallback, useContext } from 'react';
-import { useSearchParams, useNavigate} from 'react-router-dom';
+import { useSearchParams, useNavigate } from 'react-router-dom';
 import CommonContext from '../../global/contexts/CommonContext';
 import LoginForm from '../components/LoginForm';
 
@@ -23,7 +23,6 @@ const LoginContainer = () => {
 
       const errors = {};
       let hasErrors = false;
-
       // 필수 항목 검증 S
       const requiredFields = {
         email: '이메일을 입력하세요.',
@@ -32,7 +31,7 @@ const LoginContainer = () => {
 
       for (const [field, message] of Object.entries(requiredFields)) {
         if (!form[field] || !form[field]?.trim()) {
-          errors.email = message;
+          errors[field] = message;
           hasErrors = true;
         }
       }
@@ -43,7 +42,7 @@ const LoginContainer = () => {
       }
 
       // 로그인 처리..
-      // 아래 데이터는 서버에서 전송된 인증된 회원 정보를 가정한것!
+      // 아래 데이터는 서버에서 전송된 인증된 회원 정보를 가정한 것!
       const member = {
         seq: 1,
         email: 'user01@test.org',
@@ -58,10 +57,10 @@ const LoginContainer = () => {
       // 로그인 완료시 이동
       const redirectUrl = searchParams.get('redirectUrl') ?? '/';
       //navigate(redirectUrl, { replace: true });
-      
     },
     [form, setIsLogin, setLoggedMember, searchParams, navigate],
   );
+
   return (
     <LoginForm
       form={form}

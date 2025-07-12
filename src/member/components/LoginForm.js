@@ -13,6 +13,7 @@ const StyledForm = styled.form`
   max-width: 350px;
   width: 100%;
   margin: 200px auto 0;
+
   input {
     border: 1px solid ${dark};
     width: 100%;
@@ -31,6 +32,9 @@ const StyledForm = styled.form`
     margin-top: 20px;
   }
 
+  .message {
+    margin: 7px 0;
+  }
 `;
 
 const LoginForm = ({ form, onChange, onSubmit , errors}) => {
@@ -52,7 +56,7 @@ const LoginForm = ({ form, onChange, onSubmit , errors}) => {
         onChange={onChange}
       />
 
-      <MessageBox items={errors.password} theme="danger"  />
+      <MessageBox theme="danger">{errors.password}</MessageBox>
 
       <MediumButton type="submit" width="100%" color="dark">
         로그인

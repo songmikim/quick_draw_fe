@@ -2,15 +2,14 @@ import React from 'react';
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 import classNames from 'classnames';
-import { MdHome, MdDraw, MdLogout } from 'react-icons/md';
-import { IoMdLogIn } from 'react-icons/io';
-import color from '../styles/color';
-import fontzize from '../styles/fontsize';
+import { MdHome, MdDraw, MdLogin, MdLogout } from 'react-icons/md';
 import useUserInfo from '../hooks/useUserInfo';
 import useLogout from '../hooks/useLogout';
+import color from '../styles/color';
+import fontsize from '../styles/fontsize';
 
 const { primary, light, dark } = color;
-const { big, extraBig } = fontzize;
+const { big, extraBig } = fontsize;
 
 const StyledHeader = styled.header`
   height: 90px;
@@ -29,6 +28,10 @@ const StyledHeader = styled.header`
 
   .right {
     justify-content: right;
+
+    .userinfo {
+      line-height: 3rem;
+    }
   }
 
   a {
@@ -37,8 +40,7 @@ const StyledHeader = styled.header`
     display: flex;
     align-items: center;
 
-    &.on,
-    &.active {
+    &.on {
       color: ${dark};
     }
 
@@ -54,7 +56,8 @@ const StyledHeader = styled.header`
 
 const Header = () => {
   const [isLogin, loggedMember] = useUserInfo();
-  const onLogout = useLogout;
+  const onLogout = useLogout();
+
   return (
     <StyledHeader className="layout-width">
       <div className="left">
@@ -73,7 +76,7 @@ const Header = () => {
       <div className="right">
         {isLogin ? (
           <>
-            {loggedMember?.name}({loggedMember.name}) 님,
+            <span className='userinfo'>{loggedMember.name}({loggedMember.email})님, </span>
             <a onClick={onLogout}>
               <MdLogout />
               <span>로그아웃</span>
@@ -84,7 +87,7 @@ const Header = () => {
             to="/member/login"
             className={({ isActive }) => classNames({ on: isActive })}
           >
-            <IoMdLogIn />
+            <MdLogin />
             <span>로그인</span>
           </NavLink>
         )}
