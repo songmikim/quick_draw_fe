@@ -89,3 +89,15 @@ sudo systemctl restart nginx
 sudo certbot --nginx -d doodleplay.koreait.xyz
 -->
 
+## 구현 화면
+### 메인 화면
+![main Page](docs/images/1.png)
+
+### 로그인 화면
+![Login Page](docs/images/2.png)
+
+### 그림판 화면
+![Draw Canvas](docs/images/canvas.png)
+
+### 예측 결과
+![Prediction Result](docs/images/result.png)
